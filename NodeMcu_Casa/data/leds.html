@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Control de LEDs</title>
+</head>
+<body>
+  <h1>Control de 3 LEDs</h1>
+  <button onclick="toggle(0)">LED 1</button>
+  <button onclick="toggle(1)">LED 2</button>
+  <button onclick="toggle(2)">LED 3</button>
+
+  <script>
+    function toggle(led) {
+      fetch('/toggle?led=' + led)
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }
+  </script>
+</body>
+</html>
